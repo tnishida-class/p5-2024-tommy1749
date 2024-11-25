@@ -6,7 +6,7 @@ function setup(){
   fill(0);
   crossmark(10, 10, 90, 90);
   ngmark(150, 50, 80);
-  star(250, 50, 40);
+  regularPolygon(nf,250, 53 , 45)
 }
 
 function crossmark(x1, y1, x2, y2){
@@ -24,13 +24,15 @@ function ngmark(cx, cy, r){
   pop();
 }
 
-function star(cx, cy, r){
+function regularPolygon(nf, cx, cy, r){
   beginShape();
-  for(var i = 0; i < 5; i++){
-    let theta = TWO_PI * i * 2 / 5 - HALF_PI;
+  nf=8 //nfを変えたら、別の正多角形になる
+  for(var i = 0; i < nf; i++){
+    let theta = TWO_PI * i / nf- HALF_PI;
     let x = cx + cos(theta) * r;
     let y = cy + sin(theta) * r;
     vertex(x,y);
+    fill(0);
   }
   endShape(CLOSE);
 }
